@@ -1,0 +1,46 @@
+---
+title: "pareto"
+format: html
+editor: visual
+---
+
+## Pareto Distribution
+
+This is a simple test function to show the likelihood function given different values of theta and the following parameters
+
+k = 20,000
+
+n = 5
+
+y1 = 110,501
+
+y2 = 45,662
+
+y3 = 89,680
+
+y4 = 1,658,909
+
+y5 = 20,218
+
+```{r}
+x=seq(0,4,0.01)
+
+f = function(x) {
+  ((x^5)*(20000^(5*x))*((110501*45662*89680*1658909*20128)^(-x))*((110501*45662*89680*1658909*20128)^(-1)))
+}
+
+optimize(f, interval = c(-1,1), maximum = TRUE)
+
+plot(x,f(x))
+
+abline(v=c(.59),lty=2)
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
